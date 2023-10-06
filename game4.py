@@ -3,12 +3,12 @@ from decks import Deck
 
 
 class Game:
-    def __init__(self, game_iterations: int):
+    def __init__(self):
         dealt_hand = Cards.deal_cards()
         self.my_deck1 = Deck(dealt_hand[0], 1)
         self.my_deck2 = Deck(dealt_hand[1], 2)
-        self.game_iterations = game_iterations
-
+        self.game_time = 0
+        self.total_battles = 0
 
     @property
     def total_cards_between_decks(self):
@@ -41,6 +41,7 @@ class Game:
 
         winning_deck = self.my_deck1 if self.my_deck1.can_continue else self.my_deck2
         print(f'The winner is deck {winning_deck.deck_id}!')
+        return self.total_battles,
 
     def battle(self, war_pot):
         if self.my_deck1.can_draw_four and self.my_deck2.can_draw_four:
@@ -63,5 +64,6 @@ class Game:
             longer_deck.winners.extend(war_pot)
 
 
-my_game = Game(3)
-my_game.active_cards_fight()
+if __name__ == "__main__":
+    my_game = Game(3)
+    my_game.active_cards_fight()
