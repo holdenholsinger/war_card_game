@@ -6,6 +6,8 @@ class Deck:
         self.winners = []
         self.active_cards = list(hand)
         self.deck_id = deck_id
+        self.shuffle_count = 0
+        self.shuffle_time = 0
 
     def __repr__(self):
         return f'Deck {self.deck_id}'
@@ -22,6 +24,8 @@ class Deck:
         self.active_cards = list(self.winners)  # Set active cards to the shuffled winners
         self.winners = []  # Reset winners
         print(f'After shuffling, deck {self.deck_id} now has {len(self.active_cards)} cards in hand.\n')
+        self.shuffle_count += 1
+        self.shuffle_time += 10
 
     def check_if_shuffle_needed(self):
         if not self.can_shuffle:
@@ -57,7 +61,7 @@ class Deck:
 
     def draw_four_if_possible(self) -> list:
         if self.can_draw_four:
-            next_four = [self.draw_card() for i in range(4)]
+            next_four = [self.draw_card() for _ in range(4)]
             return next_four
 
 

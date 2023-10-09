@@ -2,11 +2,13 @@
 class GameSimulation:
     def __int__(self, game_iterations: int):
         self.game_iterations = game_iterations
-        self.game
 
     @property
     def fresh_deck(self):
-        # initialize new 'Game' object
+        # create new Game Object
+        # run the function that returns the data you want
+        # append the data to a pandas object
         pass
+
 
 
