@@ -37,7 +37,6 @@ class Game:
 
     def active_cards_fight(self):
         while self.my_deck1.can_continue and self.my_deck2.can_continue:
-
             if self.my_deck1.can_shuffle and self.my_deck2.can_shuffle:
                 # To ensure we don't add twenty seconds to the game time if both decks need to shuffle at the same time
                 self.game_time -= 10
@@ -56,8 +55,6 @@ class Game:
             else:
                 self.war(war_pot=[card1, card2])
 
-        winning_deck = self.my_deck1 if self.my_deck1.can_continue else self.my_deck2
-        print(f'The winner is deck {winning_deck.deck_id}!')
         return [self.total_battles, self.total_shuffle_count, f'{self.converted_game_time} minutes']
 
     def war(self, war_pot):
@@ -82,6 +79,4 @@ class Game:
             longer_deck.winners.extend(war_pot)
 
 
-my_game = Game()
-print(my_game.active_cards_fight())
 

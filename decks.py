@@ -17,8 +17,6 @@ class Deck:
         return len(self.winners) + len(self.active_cards)
 
     def shuffle_depleted_hand(self):
-        print(f'\nNOTE - Shuffling deck {self.deck_id}\n')
-        print(f'Prior to shuffling deck {self.deck_id}, length of winners is {len(self.winners)}')
         random.shuffle(self.winners)
 
         self.active_cards = list(self.winners)  # Set active cards to the shuffled winners
