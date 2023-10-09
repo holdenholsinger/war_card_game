@@ -18,10 +18,8 @@ class Deck:
 
     def shuffle_depleted_hand(self):
         random.shuffle(self.winners)
-
         self.active_cards = list(self.winners)  # Set active cards to the shuffled winners
         self.winners = []  # Reset winners
-        print(f'After shuffling, deck {self.deck_id} now has {len(self.active_cards)} cards in hand.\n')
         self.shuffle_count += 1
         self.shuffle_time += 10
 

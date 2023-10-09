@@ -55,8 +55,8 @@ class Game:
             else:
                 self.war(war_pot=[card1, card2])
 
-        return [self.total_battles, self.total_shuffle_count, f'{self.converted_game_time} minutes']
-
+        return [self.total_battles, self.total_shuffle_count, self.converted_game_time] # maybe add some more data fields
+        # maybe add some more data fields
     def war(self, war_pot):
         if self.my_deck1.can_draw_four and self.my_deck2.can_draw_four:
             war_hand1, war_hand2 = self.my_deck1.draw_four_if_possible(), self.my_deck2.draw_four_if_possible()
