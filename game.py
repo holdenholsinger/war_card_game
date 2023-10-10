@@ -37,12 +37,12 @@ class Game:
 
     def active_cards_fight(self):
         while self.my_deck1.can_continue and self.my_deck2.can_continue:
-            if self.my_deck1.can_shuffle and self.my_deck2.can_shuffle:
-                # To ensure we don't add twenty seconds to the game time if both decks need to shuffle at the same time
-                self.game_time -= 10
+            # if self.my_deck1.can_shuffle and self.my_deck2.can_shuffle:
+            #     # To ensure we don't add twenty seconds to the game time if both decks need to shuffle at the same time
+            #     self.game_time -= 10
 
             self.total_battles += 1
-            self.game_time += 1
+            self.game_time += 2
 
             card1, card2 = self.my_deck1.draw_card(), self.my_deck2.draw_card()
 
